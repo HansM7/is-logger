@@ -1,5 +1,5 @@
 {
-  "name": "is-logger",
+  "name": "use-term",
   "version": "1.0.0",
   "description": "A zero-dependency, ultra-lightweight, and beautiful terminal logging library for Node.js with smart context detection, colored outputs, and automatic timestamps.",
   "main": "src/term.js",
@@ -11,12 +11,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/hansm7/is-logger.git"
+    "url": "https://github.com/hansm7/use-term.git"
   },
   "bugs": {
-    "url": "https://github.com/hansm7/is-logger/issues"
+    "url": "https://github.com/hansm7/use-term/issues"
   },
-  "homepage": "https://github.com/hansm7/is-logger#readme",
+  "homepage": "https://github.com/hansm7/use-term#readme",
   "keywords": [
     "logger",
     "terminal",

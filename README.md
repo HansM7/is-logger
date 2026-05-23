@@ -1,8 +1,8 @@
-# is-logger 🚀
+# use-term 🚀
 
-[![NPM Version](https://img.shields.io/npm/v/is-logger.svg?style=flat-rounded&color=blue)](https://www.npmjs.com/package/is-logger)
-[![License](https://img.shields.io/npm/l/is-logger.svg?style=flat-rounded&color=green)](https://github.com/hansm7/is-logger/blob/main/LICENSE)
-[![Zero Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen.svg?style=flat-rounded)](https://www.npmjs.com/package/is-logger)
+[![NPM Version](https://img.shields.io/npm/v/use-term.svg?style=flat-rounded&color=blue)](https://www.npmjs.com/package/use-term)
+[![License](https://img.shields.io/npm/l/use-term.svg?style=flat-rounded&color=green)](https://github.com/hansm7/use-term/blob/main/LICENSE)
+[![Zero Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen.svg?style=flat-rounded)](https://www.npmjs.com/package/use-term)
 [![NodeJS Version](https://img.shields.io/badge/node-%3E%3D%2012.0.0-blue.svg?style=flat-rounded)](https://nodejs.org/)
 
 A **zero-dependency**, ultra-lightweight, and beautiful terminal logging library for Node.js. It features smart context detection (classes, functions, or text), automatic subtle timestamps, beautiful emojis, and colored object inspection.
@@ -30,21 +30,21 @@ A **zero-dependency**, ultra-lightweight, and beautiful terminal logging library
 Install the package via npm:
 
 ```bash
-npm install is-logger
+npm install use-term
 ```
 
 ---
 
 ## 🚀 Usage
 
-Since `is-logger` is built with universal Node.js compatibility in mind, it works seamlessly in both modern **ES Modules (ESM)** and legacy **CommonJS** environments out-of-the-box without requiring separate bundles or transpilation.
+Since `use-term` is built with universal Node.js compatibility in mind, it works seamlessly in both modern **ES Modules (ESM)** and legacy **CommonJS** environments out-of-the-box without requiring separate bundles or transpilation.
 
 ### 1. Modern ES Modules (ESM) — _Recommended_
 
 For modern Node.js environments (projects with `"type": "module"` in `package.json`), TypeScript, Next.js, or Vite:
 
 ```javascript
-import term from "is-logger";
+import term from "use-term";
 
 // --- A. Using inside a class (automatically gets class name) ---
 class AuthService {
@@ -85,7 +85,7 @@ processPayment();
 For traditional Node.js applications:
 
 ```javascript
-const term = require("is-logger");
+const term = require("use-term");
 
 // Easily log with CommonJS:
 term.info("CJS", "Logging using standard require() syntax!");
@@ -162,7 +162,7 @@ Prints a highlighted, uppercase section divider to demarcate different stages in
 Autocompletion works out of the box in VS Code and modern IDEs. If you are using TypeScript:
 
 ```typescript
-import term from "is-logger";
+import term from "use-term";
 
 term.info("TypeScript", "Fully typed logger out of the box!");
 ```
