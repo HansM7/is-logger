@@ -1,0 +1,41 @@
+{
+  "name": "is-logger",
+  "version": "1.0.0",
+  "description": "A zero-dependency, ultra-lightweight, and beautiful terminal logging library for Node.js with smart context detection, colored outputs, and automatic timestamps.",
+  "main": "src/term.js",
+  "types": "src/term.d.ts",
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hansm7/is-logger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hansm7/is-logger/issues"
+  },
+  "homepage": "https://github.com/hansm7/is-logger#readme",
+  "keywords": [
+    "logger",
+    "terminal",
+    "console",
+    "color",
+    "ansi",
+    "beautiful",
+    "zero-dependency",
+    "context",
+    "lightweight",
+    "term-logger",
+    "success",
+    "info",
+    "error",
+    "warn"
+  ],
+  "author": "hansm7",
+  "license": "MIT",
+  "engines": {
+    "node": ">=12.0.0"
+  }
+}
