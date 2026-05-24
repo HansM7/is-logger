@@ -49,25 +49,29 @@ import term from "use-term";
 // --- A. Using inside a class (automatically gets class name) ---
 class AuthService {
   login() {
-    term.info(this, "Starting login process...");
+    term.info("Starting login process...", undefined, this);
 
     const user = { id: 42, name: "Alex", roles: ["admin", "billing"] };
-    term.success(this, "Credentials validated successfully", user);
+    term.success("Credentials validated successfully", user, this);
   }
 }
 
 // --- B. Using inside a function (automatically gets function name) ---
 function processPayment() {
-  term.warn(processPayment, "Payment gateway is responding slowly", {
-    delayMs: 1500,
-  });
-  term.error(processPayment, "Payment gateway connection timeout", {
-    code: "ETIMEDOUT",
-  });
+  term.warn(
+    "Payment gateway is responding slowly",
+    { delayMs: 1500 },
+    processPayment,
+  );
+  term.error(
+    "Payment gateway connection timeout",
+    { code: "ETIMEDOUT" },
+    processPayment,
+  );
 }
 
 // --- C. Using custom string scopes ---
-term.info("Server", "Server initialized on port 3000", { env: "production" });
+term.info("Server initialized on port 3000", { env: "production" }, "Server");
 
 // --- D. Visual titles ---
 term.title("Authentication Flow");
@@ -88,13 +92,13 @@ For traditional Node.js applications:
 const term = require("use-term");
 
 // Easily log with CommonJS:
-term.info("CJS", "Logging using standard require() syntax!");
+term.info("Logging using standard require() syntax!", undefined, "CJS");
 
 class AuthService {
   login() {
-    term.info(this, "Starting login process...");
+    term.info("Starting login process...", undefined, this);
     const user = { id: 42, name: "Alex", roles: ["admin", "billing"] };
-    term.success(this, "Credentials validated successfully", user);
+    term.success("Credentials validated successfully", user, this);
   }
 }
 
@@ -129,23 +133,23 @@ When you run your scripts, your terminal will light up with premium, high-visibi
 
 ## 🛠️ API Reference
 
-### `term.info(context, message, [data])`
+### `term.info(message, [data], [context])`
 
 Logs an informational message.
 
-- `context` `(any)`: `this` inside a class, a function name, or a plain string.
 - `message` `(string)`: The description text of the log.
 - `data` `(any, optional)`: Any object, array, or metadata to inspect and format below.
+- `context` `(any, optional)`: `this` inside a class, a function name, or a plain string.
 
-### `term.error(context, message, [data])`
+### `term.error(message, [data], [context])`
 
 Logs an error message. Same signature as `info()`.
 
-### `term.success(context, message, [data])`
+### `term.success(message, [data], [context])`
 
 Logs a success message. Same signature as `info()`.
 
-### `term.warn(context, message, [data])`
+### `term.warn(message, [data], [context])`
 
 Logs a warning message. Same signature as `info()`.
 
@@ -164,7 +168,7 @@ Autocompletion works out of the box in VS Code and modern IDEs. If you are using
 ```typescript
 import term from "use-term";
 
-term.info("TypeScript", "Fully typed logger out of the box!");
+term.info("Fully typed logger out of the box!", undefined, "TypeScript");
 ```
 
 ---
