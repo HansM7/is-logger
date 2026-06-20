@@ -1,5 +1,11 @@
 const util = require("util");
 
+const DEFAULT_OPTIONS = {
+  silent: false,
+  silentEnvironments: ["production"],
+  environment: process.env.NODE_ENV || "development",
+};
+
 const COLORS = {
   info: "\x1b[36m",
   error: "\x1b[31m",
@@ -13,6 +19,21 @@ const COLORS = {
 };
 
 class Term {
+  constructor(options = {}) {
+    this.config = {
+      ...DEFAULT_OPTIONS,
+      ...options,
+    };
+  }
+
+  _shouldLog() {
+    if (this.config.silent) return false;
+    if (this.config.silentEnvironments.includes(this.config.environment)) {
+      return false;
+    }
+    return true;
+  }
+
   _timestamp() {
     const now = new Date();
     const time = `${now.getHours().toString().padStart(2, "0")}:${now.getMinutes().toString().padStart(2, "0")}:${now.getSeconds().toString().padStart(2, "0")}`;
@@ -46,6 +67,8 @@ class Term {
   }
 
   _log(type, color, icon, context, msg, data) {
+    if (!this._shouldLog()) return;
+
     const ctxName = this._getContextName(context);
     const timestamp = this._timestamp();
     const tag = `${color}${icon} ${type}${COLORS.reset}`;
@@ -100,10 +123,12 @@ class Term {
   }
 
   title(msg) {
+    if (!this._shouldLog()) return;
+
     console.log(
       `\n${COLORS.magenta}${COLORS.bold}━━━ ${msg.toUpperCase()} ━━━${COLORS.reset}`,
     );
   }
 }
 
-module.exports = new Term();
+module.exports = Term;

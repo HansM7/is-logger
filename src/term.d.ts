@@ -1,7 +1,43 @@
 /**
- * A beautiful, simple, and dependency-free terminal logger for Node.js.
+ * Configuration options for the Logger.
  */
-declare class Term {
+export interface LoggerOptions {
+  /**
+   * If true, no logs will be printed regardless of environment.
+   * @default false
+   */
+  silent?: boolean;
+  /**
+   * Array of environments where logging should be disabled.
+   * @default ["production"]
+   */
+  silentEnvironments?: string[];
+  /**
+   * Current environment (defaults to NODE_ENV or "development").
+   * @default process.env.NODE_ENV || "development"
+   */
+  environment?: string;
+}
+
+/**
+ * A beautiful, simple, and dependency-free terminal logger for Node.js.
+ * Instantiate with `new Logger()` to create a logger instance with optional configuration.
+ *
+ * @example
+ * const logger = new Logger();
+ * logger.info("Hello world");
+ *
+ * @example
+ * const logger = new Logger({ silent: true });
+ * logger.info("This won't be logged");
+ *
+ * @example
+ * const logger = new Logger({ silentEnvironments: ["production", "staging"] });
+ * // Logs will be disabled if NODE_ENV is "production" or "staging"
+ */
+export class Logger {
+  constructor(options?: LoggerOptions);
+
   /**
    * Logs an informational message.
    * @param msg The message to log.
@@ -44,6 +80,3 @@ declare class Term {
    */
   title(msg: string): void;
 }
-
-declare const term: Term;
-export = term;
