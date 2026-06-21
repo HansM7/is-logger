@@ -1,6 +1,6 @@
 {
   "name": "use-term",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A zero-dependency, ultra-lightweight, and beautiful terminal logging library for Node.js with smart context detection, colored outputs, and automatic timestamps.",
   "main": "src/term.js",
   "types": "src/term.d.ts",
@@ -37,5 +37,8 @@
   "license": "MIT",
   "engines": {
     "node": ">=12.0.0"
+  },
+  "scripts": {
+    "test": "node test/test.js"
   }
 }

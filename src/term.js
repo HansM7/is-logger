@@ -18,7 +18,7 @@ const COLORS = {
   bold: "\x1b[1m",
 };
 
-class Term {
+class Logger {
   constructor(options = {}) {
     this.config = {
       ...DEFAULT_OPTIONS,
@@ -131,4 +131,6 @@ class Term {
   }
 }
 
-module.exports = Term;
+module.exports = Logger;
+module.exports.Logger = Logger;
+module.exports.default = Logger;
